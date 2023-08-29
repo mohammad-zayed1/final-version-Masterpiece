@@ -1,8 +1,8 @@
 /* eslint-disable no-undef */
 
-import quotes from "./quotes.json";
 
-export const Motivation = () => {
+
+export const Motivation = ({quotes}) => {
   const motivation = quotes
     .filter((item) => item.list === "motivational")
     .map((quote, index) => {

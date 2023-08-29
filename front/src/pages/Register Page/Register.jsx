@@ -7,16 +7,7 @@ import { ToastContainer, toast } from "react-toastify";
 
 export const Register = () => {
   const navigate = useNavigate();
-  //  const [email, setEmail] = useState("");
-  //  const [isValidEmail, setIsValidEmail] = useState("");
-
-  //  const [password, setPassword] = useState("");
-  //  const [isValidPassword, setIsValidPassword] = useState("");
-
-  //  const [phoneNumber, setPhoneNumber] = useState("");
-  //  const [isValidNumber, setIsValidNumber] = useState("");
-
-  // const [fullName, setFullName] = useState("");
+ 
 
   const [inputValue, setInputValue] = useState({
     email: "",
@@ -41,143 +32,11 @@ export const Register = () => {
       position: "top-right",
     });
 
-  // const handleEmailChange = (e) => {
-  //   setEmail(e.target.value);
-  // };
-
-  // const handlePasswordChange = (e) => {
-  //   setPassword(e.target.value);
-  // };
-
-  // const handlePhoneNumberChange = (e) => {
-  //   setPhoneNumber(e.target.value);
-  // };
-
-  // const handleFullNameChange = (e) => {
-  //   setFullName(e.target.value);
-  // };
-
-  // const validateInput = (value, pattern) => {
-  //   const regex = new RegExp(pattern);
-  //   return regex.test(value);
-  // };
+  
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    // console.log("====================================");
-    // console.log(email, password, phoneNumber, fullName);
-    // console.log("====================================");
-    // Perform validation
-    // const isEmailValid = validateInput(
-    //   email,
-    //   /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/
-    // );
-    // const isPasswordValid = validateInput(
-    //   password,
-    //   /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/
-    // );
-    // const isPhoneNumberValid = validateInput(
-    //   phoneNumber,
-    //   /^(078|079|077)\d{7}$/
-    // );
-
-    // // Do something with the validation results
-    // if (!isEmailValid) {
-    //   console.log("Invalid email");
-    //   setIsValidEmail(false);
-    // }
-
-    // if (!isPasswordValid) {
-    //   console.log("Invalid password");
-    //   setIsValidPassword(false);
-    // }
-
-    // if (!isPhoneNumberValid) {
-    //   console.log("Invalid phone number");
-    //   setIsValidNumber(false);
-    // }
-
-    // // Update error messages
-    // setIsValidEmail(
-    //   isEmailValid ? (
-    //     ""
-    //   ) : (
-    //     <ul className="bg-red-200 rounded-lg p-2">
-    //       <li className="text-[12px] font-bold pb-[5px]">
-    //         Email Must Be Like This :
-    //       </li>
-    //       <li className="text-[12px]  pb-[5px] pl-[5px]">- user@user.com</li>
-    //     </ul>
-    //   )
-    // );
-    // setIsValidPassword(
-    //   isPasswordValid ? (
-    //     ""
-    //   ) : (
-    //     <ul className="bg-red-200 rounded-lg p-2">
-    //       <li className="text-[12px] font-bold pb-[5px]">
-    //         Your Password Must Include:
-    //       </li>
-    //       <li className="text-[11px]  pb-[5px] pl-[5px]">- At least 8 characters long</li>
-    //       <li className="text-[11px]  pb-[5px] pl-[5px]">
-    //        - Contains at least one lowercase letter
-    //       </li>
-    //       <li className="text-[11px]  pb-[5px] pl-[5px]">
-    //        - Contains at least one uppercase letter
-    //       </li>
-    //       <li className="text-[11px]  pb-[5px] pl-[5px]">- Contains at least one digit</li>
-    //       <li className="text-[11px]  pb-[5px] pl-[5px]">
-    //         - Contains at least one special character (such as @, $, !, %, *, ?,&)
-    //       </li>
-    //     </ul>
-    //   )
-    // );
-    // setIsValidNumber(
-    //   isPhoneNumberValid ? (
-    //     ""
-    //   ) : (
-    //     <ul className="bg-red-200 rounded-lg p-2">
-    //       <li className="text-[12px] font-bold pb-[5px]">
-    //         Your Phone Number Must Be Like This:
-    //       </li>
-    //       <li className="text-[11px]  pb-[5px] pl-[5px]">
-    //         - 10 Digits long
-    //       </li>
-    //       <li className="text-[11px]  pb-[5px] pl-[5px]">
-    //         - Start with 078 | 079 | 077
-    //       </li>
-    //     </ul>
-    //   )
-    // );
-
-    // try {
-
-    //    const { data } = await axios.post(
-    //     "http://localhost:6000/signup",
-    //     {
-    //       email:email , password:password , username:fullName
-    //     },
-    //     { withCredentials: true }
-    //   );
-    //   const { success, message } = data;
-    //   if (success) {
-    //     handleSuccess(message);
-    //     setTimeout(() => {
-    //       navigate("/");
-    //     }, 1000);
-    //   } else {
-    //     handleError(message);
-    //   }
-    // } catch (error) {
-    //   console.log(error);
-
-    // }
-
-    // setEmail("");
-    // setPassword("");
-    // setFullName("");
-    // setPhoneNumber("");
-
+    
     try {
       const { data } = await axios.post(
         "http://localhost:6600/signup",
@@ -216,7 +75,7 @@ export const Register = () => {
         >
           <img
             className="w-[70px] h-[50px] mr-2"
-            src="../../../public/logo-2-removebg-preview.png"
+            src="/logo-2-removebg-preview.png"
             alt="logo"
           />
           Kitabk

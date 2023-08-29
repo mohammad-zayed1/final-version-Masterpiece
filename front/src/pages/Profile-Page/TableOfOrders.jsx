@@ -1,23 +1,11 @@
 
-import { useState, useEffect , useContext } from "react";
-import axios from "axios";
+import {  useContext } from "react";
 import { CartContext } from "../../App";
 
 export const TableOfOrders = () => {
     const {orders} = useContext(CartContext);
-//   const [orders, setOrders] = useState([]);
-//   useEffect(() => {
-//     axios
-//       .get(`http://localhost:6600/allorders/${props.userId}`)
-//       .then((response) => {
-//         setOrders(response.data);
-//       })
-//       .catch((error) => {
-//         console.error("Error fetching data:", error);
-//       });
-//   }, []);
 
-  console.log('orders' , orders)
+
   const tableRows = orders.map((order) => {
     return (
       <tr key={order._id} className="border-b ">

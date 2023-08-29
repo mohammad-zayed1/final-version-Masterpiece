@@ -6,6 +6,7 @@ import { TableOfQuotes } from "../Quotes Page/TableOfQuotes";
 
 import { TableOfHistory } from "../History Page/TableOfHistory";
 import { TableOfUsers } from "../Users Page/TableOfUsers";
+import TableOfContact from "../Contact Page/TableOfContact";
 
 import { RefreshContext } from "../../App";
 
@@ -33,6 +34,10 @@ export const Main = () => {
 
       <div className="grid grid-cols-1 gap-4">
         <TableOfHistory setRefresh={setRefresh} refresh={refresh} />
+      </div>
+
+      <div className="grid grid-cols-1 gap-4">
+        <TableOfContact setRefresh={setRefresh} refresh={refresh} />
       </div>
     </main>
   );

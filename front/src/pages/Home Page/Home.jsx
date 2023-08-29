@@ -35,12 +35,7 @@ export const Home = ()=>{
       );
       const { status, user } = data;
       setUserData(data);
-      // setUser(prev => ({
-      //   ...prev,
-      //   id:data.id,
-      //   name:data.user,
-      //   email:data.email,
-      // }))
+     
       return status
       ? 
       toast(`Hello ${user}`, {

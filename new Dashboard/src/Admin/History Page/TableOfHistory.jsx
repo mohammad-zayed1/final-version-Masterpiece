@@ -53,11 +53,14 @@ export const TableOfHistory = () => {
                 </tr>
               </thead>
               <tbody>
+
                 {tableRows.length === 0 ? (
-                  <div className="p-3 text-lg"> There Are No Orders Yet</div>
-                ) : (
+                <tr>
+                  <td className="p-3 text-lg"> There Are No Orders Yet</td>
+                  </tr>
+                  ) : (
                   tableRows
-                )}
+                  )}
               </tbody>
             </table>
           </div>

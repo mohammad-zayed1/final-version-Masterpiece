@@ -1,8 +1,8 @@
 /* eslint-disable no-undef */
 
-import quotes from "./quotes.json";
 
-export const Day = () => {
+
+export const Day = ({quotes}) => {
   const day = quotes
     .filter((item) => item.list === "of the day")
     .map((quote, index) => {

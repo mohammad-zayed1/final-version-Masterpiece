@@ -9,6 +9,7 @@ import { ImBooks } from "react-icons/im";
 import { BsPerson } from "react-icons/bs";
 import { TfiQuoteRight } from "react-icons/tfi";
 import { FcAbout } from "react-icons/fc";
+import { BiSolidContact } from "react-icons/bi";
 
 export const Aside = () => {
   return (
@@ -68,6 +69,15 @@ export const Aside = () => {
             >
               <TfiQuoteRight />
               Quotes
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              to="/contact"
+              className="flex  items-center gap-2 p-2  w-full text-base font-medium text-white rounded-lg transition duration-75 group hover:bg-[#fff] hover:text-black"
+            >
+              <BiSolidContact />
+              Contact Messages
             </NavLink>
           </li>
           <li>

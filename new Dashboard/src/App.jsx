@@ -1,5 +1,5 @@
 /* eslint-disable react-refresh/only-export-components */
-import { createContext, useState , useEffect } from "react";
+import { createContext, useState, useEffect } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import axios from "axios";
 
@@ -15,6 +15,7 @@ import { Aside } from "./Admin/Aside";
 import { PageNotFound } from "./Admin/PageNotFound";
 import { Users } from "./Admin/Users Page/Users";
 import "./App.css";
+import Contact from "./Admin/Contact Page/Contact";
 
 export const RefreshContext = createContext();
 
@@ -35,15 +36,13 @@ function App() {
   }, []);
 
   let sum = 0;
-   const total = orders?.map((order) => order.total)
-   for(let i = 0 ; i < total.length ;i++){
-  sum += total[i]
-   }
-
-
+  const total = orders?.map((order) => order.total);
+  for (let i = 0; i < total.length; i++) {
+    sum += total[i];
+  }
 
   return (
-    <RefreshContext.Provider value={{ refresh, setRefresh , orders , sum }}>
+    <RefreshContext.Provider value={{ refresh, setRefresh, orders, sum }}>
       <BrowserRouter>
         <Nav />
         <Aside />
@@ -55,6 +54,7 @@ function App() {
           <Route path="/quotes" element={<Quotes />} />
           <Route path="/about" element={<About />} />
           <Route path="/users" element={<Users />} />
+          <Route path="/contact" element={<Contact />} />
           <Route path="/*" element={<PageNotFound />} />
         </Routes>
       </BrowserRouter>

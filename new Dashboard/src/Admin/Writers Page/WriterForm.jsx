@@ -9,19 +9,18 @@ import "react-toastify/dist/ReactToastify.css";
 import { IoAddCircleOutline } from "react-icons/io5";
 import { MdOutlineCancel } from "react-icons/md";
 
-
 // import 'dotenv/config'
-export const WriterForm = ({ setRefresh ,refresh}) => {
+export const WriterForm = ({ setRefresh, refresh }) => {
   const notifySuccess = (msg) => toast.success(msg);
   const notifyError = (msg) => toast.error(msg);
 
   const [show, setShow] = useState(false);
   const [writerInfo, setInfo] = useState({
     name: "",
-      job: "",
-      image: "",
-      description: "",
-      link:""
+    job: "",
+    image: "",
+    description: "",
+    link: "",
   });
 
   const handleChange = (event) => {
@@ -49,10 +48,12 @@ export const WriterForm = ({ setRefresh ,refresh}) => {
       console.log(err);
       notifyError(err.message);
     }
+    setInfo({ name: "", job: "", image: "", description: "", link: "" });
   };
   const handleShow = (e) => {
     e.preventDefault();
     setShow(!show);
+    setInfo({ name: "", job: "", image: "", description: "", link: "" });
   };
   return (
     <>
@@ -79,8 +80,7 @@ export const WriterForm = ({ setRefresh ,refresh}) => {
         )}
         <ToastContainer />
       </div>
-      
-      
+
       {show && (
         <form className="border p-[10px] rounded-lg" onSubmit={handleSubmit}>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -147,7 +147,6 @@ export const WriterForm = ({ setRefresh ,refresh}) => {
               </label>
               <input
                 type="text"
-                
                 name="link"
                 placeholder="Type Here"
                 className="input input-sm  border-[#529b03] w-full max-w-xs"
@@ -157,7 +156,6 @@ export const WriterForm = ({ setRefresh ,refresh}) => {
             </div>
             {/*  */}
 
-
             <div className="form-control w-full max-w-xs">
               <label className="label invisible">
                 <span className="label-text">button</span>
@@ -166,7 +164,6 @@ export const WriterForm = ({ setRefresh ,refresh}) => {
                 Add
               </button>
             </div>
-
 
             {/* <div className="form-control w-full max-w-xs">
               <label className="label">

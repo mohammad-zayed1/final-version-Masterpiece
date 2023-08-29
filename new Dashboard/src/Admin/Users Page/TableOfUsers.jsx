@@ -59,17 +59,18 @@ export const TableOfUsers = () => {
                 </tr>
               </thead>
               <tbody>
-                {tableRows.length === 0 ? (
-                  <div className="p-3 text-lg">There are no Users</div>
-                ) : (
-                  tableRows
-                )}
+                  {tableRows.length === 0 ? (
+                <tr>
+                    <td className="p-3 text-lg">There are no Users</td>
+                </tr>
+                  ) : (
+                    tableRows
+                  )}
               </tbody>
             </table>
           </div>
         </div>
       </div>
-      
     </section>
   );
 };

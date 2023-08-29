@@ -44,10 +44,20 @@ export const QuoteForm = ({ setRefresh, refresh }) => {
       console.log(err);
       notifyError(err.message);
     }
+    setInfo({
+      name: "",
+      quote: "",
+      list: "",
+    });
   };
   const handleShow = (e) => {
     e.preventDefault();
     setShow(!show);
+    setInfo({
+      name: "",
+      quote: "",
+      list: "",
+    });
   };
   return (
     <>

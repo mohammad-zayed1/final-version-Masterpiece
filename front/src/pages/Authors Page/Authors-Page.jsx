@@ -1,13 +1,27 @@
+
+import { useState , useEffect } from "react";
 import { Author } from "./Author";
 
-import Data from './authors.json'
 import { NavbarLanding } from "../../components/NavbarLanding";
 import { Footer } from "../../components/Footer";
 
 export const AuthorsPage= ()=>{
+  const [writers, setWriters] = useState([]);
 
-    const Authors = Data.map((author , index)=>{
-        return <Author key={index} name={author.name} image={author.image} job={author.job}  description={author.description} link={author.link}/>;
+  useEffect(() => {
+    async function fetchWriters() {
+      try {
+        const res = await fetch("http://localhost:6600/showwriters");
+        const data = await res.json();
+        setWriters(data);
+      } catch (error) {
+        console.error(error);
+      }
+    }
+    fetchWriters();
+  }, []);
+    const Authors = writers.map((author)=>{
+        return <Author key={author._id} name={author.name} image={author.image} job={author.job}  description={author.description} link={author.link}/>;
     });
 
     return (

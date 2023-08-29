@@ -10,14 +10,13 @@ import { NavbarHome } from "../../components/NavbarHome";
 import { CartContext } from "../../App";
 
 export const Checkout = () => {
-  const { cart , setCart,  total , calculateCount , count , setCount} =
+  const { cart, setCart, total, calculateCount, count, setCount, orders } =
     useContext(CartContext);
   // const [items, setItems] = useState(JSON.parse(localStorage.getItem("cart")));
   // const [total, setTotal] = useState(0);
 
   const navigate = useNavigate();
   const [cookies, removeCookie] = useCookies([]);
- 
 
   const [, setUsername] = useState("");
   const [userData, setUserData] = useState({
@@ -45,11 +44,11 @@ export const Checkout = () => {
         userID: data.id,
         customerName: user,
       }));
-      
+
       return status ? "" : (removeCookie("token"), navigate("/login"));
     };
     verifyCookie();
-  }, [cookies, navigate, removeCookie]);
+  }, [cookies, navigate, removeCookie, orders]);
   const Logout = () => {
     removeCookie("token");
     navigate("/login");
@@ -61,7 +60,6 @@ export const Checkout = () => {
   // };
   // console.log(count)
 
- 
   console.log(userData);
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -74,35 +72,48 @@ export const Checkout = () => {
       confirmButtonColor: "#519903",
       cancelButtonColor: "#d33",
       confirmButtonText: "Yes, Confirm Payment",
-    }).then((result) => {
-      if (result.isConfirmed) {
-        Swal.fire("Confirmed!", "Your Payment has been confiremd successfully.", "success");
-      }
-       calculateCount();
-      const { userID, customerName } = userData;
-      const { address, phone } = info;
-      console.log("id:" , userID,"name:", customerName,"address:", address,"phone:", phone);
-       axios.post("http://localhost:6600/addorder", {
-        userID: userID,
-        customerName: customerName,
-        products: cart,
-        address: address,
-        phone: phone,
-        quantity: count,
-        total: total,
-      });
-      navigate('/home');
-    }).then(()=>{
-    
-      setUserData({
-        address:"",
-        phone:""
-      })
-      setCart([]);
-      setCount(0)
-      // setRefresh(!refresh)
-
     })
+      .then((result) => {
+        if (result.isConfirmed) {
+          Swal.fire(
+            "Confirmed!",
+            "Your Payment has been confiremd successfully.",
+            "success"
+          );
+        }
+        calculateCount();
+        const { userID, customerName } = userData;
+        const { address, phone } = info;
+        console.log(
+          "id:",
+          userID,
+          "name:",
+          customerName,
+          "address:",
+          address,
+          "phone:",
+          phone
+        );
+        axios.post("http://localhost:6600/addorder", {
+          userID: userID,
+          customerName: customerName,
+          products: cart,
+          address: address,
+          phone: phone,
+          quantity: count,
+          total: total,
+        });
+        navigate("/home");
+      })
+      .then(() => {
+        setUserData({
+          address: "",
+          phone: "",
+        });
+        setCart([]);
+        setCount(0);
+        // setRefresh(!refresh)
+      });
   };
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -111,7 +122,6 @@ export const Checkout = () => {
       [name]: value,
     }));
   };
- 
 
   return (
     <>
@@ -167,7 +177,6 @@ export const Checkout = () => {
                     name="card-number"
                     maxLength={14}
                     minLength={14}
-                  
                     placeholder="1234-5678-XXXX-XXXX"
                     className="form-input pr-10 w-full block shadow-sm rounded border-gray-300 bg-gray-50 text-sm placeholder-gray-300 focus:border-primary focus:ring-1 focus:ring-primary"
                   />
@@ -196,7 +205,6 @@ export const Checkout = () => {
                         maxLength={2}
                         minLength={1}
                         placeholder="month"
-                      
                         className="form-input w-36 block shadow-sm rounded border-gray-300 bg-gray-50 text-sm placeholder-gray-300 focus:border-primary focus:ring-1 focus:ring-primary"
                       />
                     </div>
@@ -216,9 +224,8 @@ export const Checkout = () => {
                         minLength={4}
                         className="form-input w-36 block shadow-sm rounded border-gray-300 bg-gray-50 text-sm placeholder-gray-300 focus:border-primary focus:ring-1 focus:ring-primary"
                       />
-
                     </div>
-  
+
                     {/* ::::security code */}
                     <div className="my-1 relative">
                       <label

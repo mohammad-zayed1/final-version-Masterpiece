@@ -29,11 +29,11 @@ export const Quotes = ()=>{
 
    
     return (
-      <div className="bg-primary py-32" id="quotes">
-        <h2 className="mb-4 text-4xl text-center tracking-tight font-extrabold text-white ">
+      <div className="bg-white py-32" id="quotes">
+        <h2 className="mb-4 text-4xl text-center tracking-tight font-extrabold text-gray-900 ">
           Some Quotes For You
         </h2>
-        <blockquote className="text-xl rounded-lg bg-[#ffffff63] italic font-semibold text-gray-900 dark:text-white py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6 text-center">
+        <blockquote className="text-xl rounded-lg bg-[#519903b2] italic font-semibold text-gray-900 dark:text-white py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6 text-center mt-10">
           <p className="text-white">
             &#34;{quotes[currentQuoteIndex]}&#34;
           </p>

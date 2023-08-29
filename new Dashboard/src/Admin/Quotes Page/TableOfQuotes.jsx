@@ -1,4 +1,3 @@
-
 import { AiOutlineDelete } from "react-icons/ai";
 import Swal from "sweetalert2";
 import { useEffect, useState } from "react";
@@ -13,7 +12,7 @@ export const TableOfQuotes = ({ refresh, setRefresh }) => {
     _id: "",
     name: "",
     quote: "",
-    list: ""
+    list: "",
   });
   const notifySuccess = (msg) => toast.success(msg);
   const notifyError = (msg) => toast.error(msg);
@@ -109,7 +108,6 @@ export const TableOfQuotes = ({ refresh, setRefresh }) => {
                     name: quote.name,
                     quote: quote.quote,
                     list: quote.list,
-                   
                   }));
                 }}
                 className="btn bg-white hover:bg-info shadow-lg hover:shadow-xl border-none "
@@ -141,7 +139,7 @@ export const TableOfQuotes = ({ refresh, setRefresh }) => {
       <div className="">
         {/* Start coding here */}
         <h1 className="text-[30px] font-bold py-3">Quotes</h1>
-        <div className="bg-white  relative shadow-md sm:rounded-2xl overflow-scroll max-h-[300px]">
+        <div className="bg-white  relative shadow-md sm:rounded-2xl overflow-scroll overflow-x-hidden max-h-[300px]">
           <div className="overflow-x-auto">
             <table className="w-full text-sm text-left text-gray-500 table-zebra ">
               <thead className="text-xs text-white uppercase bg-[#529b03]">
@@ -162,11 +160,13 @@ export const TableOfQuotes = ({ refresh, setRefresh }) => {
                 </tr>
               </thead>
               <tbody>
-                {tableRows.length === 0 ? (
-                  <div className="p-3 text-lg">There are no Quotes</div>
-                ) : (
-                  tableRows
-                )}
+                  {tableRows.length === 0 ? (
+                <tr>
+                    <td className="p-3 text-lg">There are no Quotes</td>
+                    </tr>
+                  ) : (
+                    tableRows
+                  )}
               </tbody>
             </table>
           </div>
@@ -178,7 +178,10 @@ export const TableOfQuotes = ({ refresh, setRefresh }) => {
           method="dialog"
           className="modal-box relative"
         >
-          <span onClick={()=>   window.my_modal_3.close()} className=" flex items-center justify-center rounded-full shadow-2xl  absolute top-0 right-5 w-[30px] h-[30px] cursor-pointer">
+          <span
+            onClick={() => window.my_modal_3.close()}
+            className=" flex items-center justify-center rounded-full shadow-2xl  absolute top-0 right-5 w-[30px] h-[30px] cursor-pointer"
+          >
             x
           </span>
           <div className="grid grid-cols-1  gap-4 ">
@@ -224,11 +227,8 @@ export const TableOfQuotes = ({ refresh, setRefresh }) => {
                 onChange={handleChange}
               />
             </div>
-          
-
 
             <div className="form-control w-full max-w-xs mx-auto">
-              
               <button type="submit" className="btn btn-sm btn-primary">
                 update
               </button>
@@ -237,9 +237,7 @@ export const TableOfQuotes = ({ refresh, setRefresh }) => {
           </div>
         </form>
       </dialog>
-      <ToastContainer/>
+      <ToastContainer />
     </section>
   );
 };
-
-

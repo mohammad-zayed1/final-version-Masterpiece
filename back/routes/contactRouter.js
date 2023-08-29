@@ -4,6 +4,6 @@ const contactRouter = require("../controllers/contactController");
 
 router.post("/sendmessage", contactRouter.sendMessage);
 router.get("/getmessages", contactRouter.getMessages);
-router.put("/readmessages", contactRouter.readMessage);
+router.put("/readmessages/:id", contactRouter.readMessage);
 
 module.exports = router;

@@ -1,4 +1,4 @@
-import { useState  } from "react";
+import { useState } from "react";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
@@ -15,13 +15,13 @@ export const Login = () => {
     setLoginData((prevData) => ({ ...prevData, [name]: value }));
   };
   const handleError = (err) =>
-  toast.error(err, {
-    position: "top-right",
-  });
-const handleSuccess = (msg) =>
-  toast.success(msg, {
-    position: "top-right",
-  });
+    toast.error(err, {
+      position: "top-right",
+    });
+  const handleSuccess = (msg) =>
+    toast.success(msg, {
+      position: "top-right",
+    });
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
@@ -61,7 +61,7 @@ const handleSuccess = (msg) =>
         >
           <img
             className="w-[70px] h-[50px] mr-2"
-            src="../../../public/logo-2-removebg-preview.png"
+            src="/public/logo-2-removebg-preview.png"
             alt="logo"
           />
           Kitabk
@@ -92,7 +92,6 @@ const handleSuccess = (msg) =>
                   placeholder="name@company.com"
                   onChange={handleChange}
                   required
-                  
                 />
               </div>
               <div>
@@ -113,34 +112,7 @@ const handleSuccess = (msg) =>
                   required
                 />
               </div>
-              <div className="flex items-center justify-between">
-                <div className="flex items-start">
-                  <div className="flex items-center h-5">
-                    <input
-                      id="remember"
-                      aria-describedby="remember"
-                      type="checkbox"
-                      className="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-primary-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-primary-600 dark:ring-offset-gray-800"
-                      required=""
-                    />
-                  </div>
-                  <div className="ml-3 text-sm">
-                    <label
-                      htmlFor="remember"
-                      className="text-gray-500 dark:text-gray-300"
-                    >
-                      Remember me
-                    </label>
-                  </div>
-                </div>
-                <a
-                  href="#"
-                  className="text-sm font-medium text-primary-600 hover:underline dark:text-primary-500"
-                >
-                  Forgot password?
-                </a>
-              </div>
-             
+
               <button
                 type="submit"
                 className="w-full text-white bg-primary hover:bg-[#458106] focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center "

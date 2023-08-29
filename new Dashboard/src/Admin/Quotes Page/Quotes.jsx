@@ -1,8 +1,8 @@
-import { useContext} from 'react';
 import { TableOfQuotes } from "./TableOfQuotes";
+import { useContext} from 'react';
 
-import {QuoteForm} from './QuoteForm';
 import { RefreshContext } from "../../App";
+import {QuoteForm} from './QuoteForm';
 export const Quotes = () => {
   // const [refresh,setRefresh]= useState(true)
   const {refresh,setRefresh} = useContext(RefreshContext)

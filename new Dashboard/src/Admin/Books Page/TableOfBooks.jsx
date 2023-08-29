@@ -1,11 +1,12 @@
 /* eslint-disable react/prop-types */
 import { useEffect, useState } from "react";
-import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer, toast } from "react-toastify";
 import { AiOutlineDelete } from "react-icons/ai";
 import { BiSolidMessageSquareEdit } from "react-icons/bi";
-import Swal from "sweetalert2";
+
 import axios from "axios";
+import Swal from "sweetalert2";
+import "react-toastify/dist/ReactToastify.css";
 
 export const TableOfBooks = ({ refresh, setRefresh }) => {
   const notifySuccess = (msg) => toast.success(msg);
@@ -195,7 +196,9 @@ export const TableOfBooks = ({ refresh, setRefresh }) => {
               </thead>
               <tbody>
                 {tableRows.length === 0 ? (
-                  <div className="p-3 text-lg">There are no Books</div>
+                  <tr>
+                    <td className="p-3 text-lg">There are no Books</td>
+                  </tr>
                 ) : (
                   tableRows
                 )}

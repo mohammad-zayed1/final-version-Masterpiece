@@ -13,7 +13,7 @@ export const Main = ()=>{
         <Services />
         <Authors />
         <Quotes/>
-        {/* <Pricing /> */}
+       
       </>
     );
 }

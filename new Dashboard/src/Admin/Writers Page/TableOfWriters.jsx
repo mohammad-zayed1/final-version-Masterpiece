@@ -147,8 +147,8 @@ export const TableOfWriters = ({ refresh, setRefresh }) => {
       <div className="">
         <h1 className="text-[30px] font-bold py-3">Authors</h1>
         {/* Start coding here */}
-        <div className="bg-white  relative shadow-md sm:rounded-2xl  max-h-[300px]">
-          <div className="overflow-scroll">
+        <div className="bg-white  relative shadow-md sm:rounded-2xl overflow-scroll overflow-x-hidden  max-h-[300px]">
+          <div className="overflow-x-auto">
             <table className="w-full text-sm text-left text-gray-500  table-zebra">
               <thead className="text-xs text-white uppercase bg-[#529b03] ">
                 <tr>
@@ -168,17 +168,19 @@ export const TableOfWriters = ({ refresh, setRefresh }) => {
                   <th scope="col" className="px-4 py-3">
                     Link
                   </th>
-                  <th scope="col" className="px-4 py-3">
+                  <th scope="col" className="px-8 py-3">
                     <span className="sr-only">Actions</span>
                   </th>
                 </tr>
               </thead>
               <tbody>
-                {tableRows.length === 0 ? (
-                  <div className="p-3 text-lg">There are no authors</div>
-                ) : (
-                  tableRows
-                )}
+                  {tableRows.length === 0 ? (
+                <tr>
+                    <td className="p-3 text-lg">There are no authors</td>
+                </tr>
+                  ) : (
+                    tableRows
+                  )}
               </tbody>
             </table>
           </div>
@@ -279,7 +281,7 @@ export const TableOfWriters = ({ refresh, setRefresh }) => {
           </div>
         </form>
       </dialog>
-      <ToastContainer/>
+      <ToastContainer />
     </section>
   );
 };
