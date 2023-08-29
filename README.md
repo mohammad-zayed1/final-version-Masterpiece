@@ -34,4 +34,3 @@ This is an online books store e-commerce system that allows users to browse and 
 - Express.js: Web framework for building Node.js applications
 - MongoDB: NoSQL database for storing data
 - Mongoose: MongoDB object modeling for Node.js
-- Jest: Testing framework for JavaScript applications
