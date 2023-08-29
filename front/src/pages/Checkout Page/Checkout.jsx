@@ -72,15 +72,14 @@ export const Checkout = () => {
       confirmButtonColor: "#519903",
       cancelButtonColor: "#d33",
       confirmButtonText: "Yes, Confirm Payment",
-    })
-      .then((result) => {
-        if (result.isConfirmed) {
-          Swal.fire(
-            "Confirmed!",
-            "Your Payment has been confiremd successfully.",
-            "success"
-          );
-        }
+    }).then((result) => {
+      if (result.isConfirmed) {
+        Swal.fire(
+          "Confirmed!",
+          "Your Payment has been confiremd successfully.",
+          "success"
+        );
+
         calculateCount();
         const { userID, customerName } = userData;
         const { address, phone } = info;
@@ -104,16 +103,14 @@ export const Checkout = () => {
           total: total,
         });
         navigate("/home");
-      })
-      .then(() => {
         setUserData({
           address: "",
           phone: "",
         });
         setCart([]);
         setCount(0);
-        // setRefresh(!refresh)
-      });
+      }
+    });
   };
   const handleChange = (e) => {
     const { name, value } = e.target;
