@@ -19,6 +19,7 @@ export const Details = () => {
   
   const navigate = useNavigate();
   const [cookies, removeCookie] = useCookies([]);
+  console.log(cookies)
   const [username, setUsername] = useState("");
   useEffect(() => {
     const verifyCookie = async () => {

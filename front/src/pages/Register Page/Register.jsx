@@ -48,6 +48,7 @@ export const Register = () => {
       const { success, message } = data;
       if (success) {
         handleSuccess(message);
+        localStorage.setItem("token" , true);
         setTimeout(() => {
           navigate("/home");
         }, 1000);

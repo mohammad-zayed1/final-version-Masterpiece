@@ -1,6 +1,6 @@
-
-import { NavLink , Link } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 export const NavbarLanding = () => {
+  const token = localStorage.getItem("token");
   return (
     <div className="navbar bg-white shadow-lg z-10 sticky top-0">
       <div className="navbar-start ">
@@ -46,9 +46,12 @@ export const NavbarLanding = () => {
           </ul>
         </div>
         <Link to="/" className="btn btn-ghost normal-case text-xl">
-        <img src="../../public/logo-2-removebg-preview.png" className="w-[70px] h-[40px]" />
+          <img
+            src="../../public/logo-2-removebg-preview.png"
+            className="w-[70px] h-[40px]"
+          />
           Kitabk
-          </Link>
+        </Link>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">
@@ -70,15 +73,22 @@ export const NavbarLanding = () => {
           <li>
             <NavLink to="/contact">Contact Us</NavLink>
           </li>
+          {token && (
+            <li>
+              <NavLink to="/home">Store</NavLink>
+            </li>
+          )}
         </ul>
       </div>
       <div className="navbar-end">
-        <Link
-          to="/login"
-          className="btn bg-primary border-none outline-none text-white hover:bg-[#458106]"
-        >
-          Get started
-        </Link>
+        {!token && (
+          <Link
+            to="/login"
+            className="btn bg-primary border-none outline-none text-white hover:bg-[#458106]"
+          >
+            Get started
+          </Link>
+        )}
       </div>
     </div>
   );

@@ -1,10 +1,8 @@
-
-import {  useContext } from "react";
+import { useContext } from "react";
 import { CartContext } from "../../App";
 
 export const TableOfOrders = () => {
-    const {orders} = useContext(CartContext);
-
+  const { orders } = useContext(CartContext);
 
   const tableRows = orders.map((order) => {
     return (
@@ -51,13 +49,13 @@ export const TableOfOrders = () => {
                   <th scope="col" className="px-4 py-3">
                     Date
                   </th>
-
-                 
                 </tr>
               </thead>
               <tbody>
                 {tableRows.length === 0 ? (
-                  <div className="p-3 text-lg">There are no Orders Yet</div>
+                  <tr>
+                    <td className="p-3 text-lg">There are no Orders Yet</td>
+                  </tr>
                 ) : (
                   tableRows
                 )}

@@ -196,11 +196,13 @@ export const Checkout = () => {
                         Month
                       </label>
                       <input
-                        type="text"
+                        type="number"
                         id="month"
                         name="month"
                         maxLength={2}
                         minLength={1}
+                        min={new Date().getMonth()}
+                        max={12}
                         placeholder="month"
                         className="form-input w-36 block shadow-sm rounded border-gray-300 bg-gray-50 text-sm placeholder-gray-300 focus:border-primary focus:ring-1 focus:ring-primary"
                       />
@@ -213,12 +215,13 @@ export const Checkout = () => {
                         Year
                       </label>
                       <input
-                        type="text"
+                        type="number"
                         id=" year"
                         name="year"
                         placeholder="year"
                         maxLength={4}
                         minLength={4}
+                        min={new Date().getFullYear()}
                         className="form-input w-36 block shadow-sm rounded border-gray-300 bg-gray-50 text-sm placeholder-gray-300 focus:border-primary focus:ring-1 focus:ring-primary"
                       />
                     </div>
